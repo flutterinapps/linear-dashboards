@@ -588,21 +588,13 @@
                         <p class="text-sm text-on-primary-container leading-relaxed"><strong class="text-primary">Nota:</strong> Los Pendientes son la suma de los estados Backlog, Planned, In progress, Blocked e In Review. No cuenta cancelados, ni archivados, ni completados.</p>
                     </div>
 
-                    <div class="flex items-center gap-2 mb-8 overflow-x-auto pb-2" data-purpose="month-navigation">
-    <button class="px-5 py-2.5 rounded-full text-sm text-on-surface-variant hover:text-primary transition-all font-medium whitespace-nowrap" data-month="Enero">Enero</button>
-    <button class="px-5 py-2.5 rounded-full text-sm text-on-surface-variant hover:text-primary transition-all font-medium whitespace-nowrap" data-month="Febrero">Febrero</button>
-    <button class="px-5 py-2.5 rounded-full text-sm text-on-surface-variant hover:text-primary transition-all font-medium whitespace-nowrap" data-month="Marzo">Marzo</button>
-    <button class="px-5 py-2.5 rounded-full text-sm text-on-surface-variant hover:text-primary transition-all font-medium whitespace-nowrap" data-month="Abril">Abril</button>
-    <button class="px-5 py-2.5 rounded-full text-sm text-on-surface-variant hover:text-primary transition-all font-medium whitespace-nowrap" data-month="Mayo">Mayo</button>
-    <button class="px-5 py-2.5 rounded-full text-sm text-on-surface-variant hover:text-primary transition-all font-medium whitespace-nowrap" data-month="Junio">Junio</button>
-    <button class="px-5 py-2.5 rounded-full text-sm text-on-surface-variant hover:text-primary transition-all font-medium whitespace-nowrap" data-month="Julio">Julio</button>
-    <button class="px-5 py-2.5 rounded-full text-sm text-primary border-b-2 border-primary font-semibold whitespace-nowrap" data-month="Agosto">Agosto</button>
+                    <div class="flex items-center gap-2 mb-8 overflow-x-auto pb-2" id="projects-month-nav" data-purpose="month-navigation">
                     </div>
 
                     <div class="tab-content" data-purpose="projects-data" id="tab-projects">
                         <div class="flex items-center gap-2 mb-6">
                             <span class="h-2 w-2 rounded-full bg-primary"></span>
-                            <span class="text-sm font-medium text-on-surface-variant uppercase tracking-widest" id="month-header">Mayo 2026: 18 proyectos creados</span>
+                            <span class="text-sm font-medium text-on-surface-variant uppercase tracking-widest" id="month-header">Cargando...</span>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-10">
@@ -894,21 +886,13 @@
         </div>
     </div>
 
-    <div class="flex items-center gap-2 mb-8 overflow-x-auto pb-2" data-purpose="month-navigation">
-    <button class="px-5 py-2.5 rounded-full text-sm text-on-surface-variant font-medium hover:text-primary transition-all whitespace-nowrap" data-month="Enero">Enero</button>
-    <button class="px-5 py-2.5 rounded-full text-sm text-on-surface-variant font-medium hover:text-primary transition-all whitespace-nowrap" data-month="Febrero">Febrero</button>
-    <button class="px-5 py-2.5 rounded-full text-sm text-on-surface-variant font-medium hover:text-primary transition-all whitespace-nowrap" data-month="Marzo">Marzo</button>
-    <button class="px-5 py-2.5 rounded-full text-sm text-on-surface-variant font-medium hover:text-primary transition-all whitespace-nowrap" data-month="Abril">Abril</button>
-    <button class="px-5 py-2.5 rounded-full text-sm text-on-surface-variant font-medium hover:text-primary transition-all whitespace-nowrap" data-month="Mayo">Mayo</button>
-    <button class="px-5 py-2.5 rounded-full text-sm text-on-surface-variant font-medium hover:text-primary transition-all whitespace-nowrap" data-month="Junio">Junio</button>
-    <button class="px-5 py-2.5 rounded-full text-sm text-on-surface-variant font-medium hover:text-primary transition-all whitespace-nowrap" data-month="Julio">Julio</button>
-    <button class="px-5 py-2.5 rounded-full text-sm text-primary border-b-2 border-primary font-semibold transition-all whitespace-nowrap" data-month="Agosto">Agosto</button>
+    <div class="flex items-center gap-2 mb-8 overflow-x-auto pb-2" id="issues-month-nav" data-purpose="month-navigation">
     </div>
 
-    <div class="tab-content" id="tab-issues" data-month="Agosto">
+    <div class="tab-content" id="tab-issues">
         <div class="flex items-center gap-2 mb-6">
             <span class="h-2 w-2 rounded-full bg-primary"></span>
-            <span id="issues-month-header" class="text-sm font-medium text-on-surface-variant uppercase tracking-widest">Mayo 2026: 58 issues totales | Pendientes: 29</span>
+            <span id="issues-month-header" class="text-sm font-medium text-on-surface-variant uppercase tracking-widest">Cargando...</span>
         </div>
 
         <div class="glacier-card p-6 rounded-xl mb-10">
@@ -1296,7 +1280,7 @@
                         <div class="glacier-card rounded-2xl p-6 mb-2">
                             <div class="flex items-center justify-between mb-6">
                                 <div>
-                                    <h2 class="text-xl font-bold text-on-surface">Evolución Anual 2026</h2>
+                                    <h2 class="text-xl font-bold text-on-surface">Evolución Anual <span id="ce2-trend-year"></span></h2>
                                     <p class="text-sm text-on-surface-variant mt-1">Enero → presente · <span id="ce2-trend-subtitle">Cargando meses...</span></p>
                                 </div>
                                 <div class="flex gap-2">
@@ -1344,14 +1328,6 @@
 
                     <div class="mb-6 flex gap-3 items-center">
                         <select id="ce2-month-select" class="px-4 py-2 rounded-lg border border-outline bg-surface text-on-surface text-sm">
-                            <option value="Enero">Enero</option>
-                            <option value="Febrero">Febrero</option>
-                            <option value="Marzo">Marzo</option>
-                            <option value="Abril">Abril</option>
-                            <option value="Mayo">Mayo</option>
-                            <option value="Junio">Junio</option>
-                            <option value="Julio">Julio</option>
-                            <option value="Agosto" selected>Agosto</option>
                         </select>
                         <button onclick="loadCE2Metrics()" class="px-6 py-2 rounded-lg bg-primary text-on-primary font-medium text-sm hover:bg-primary/90 transition-all">
                             Cargar
@@ -1417,7 +1393,7 @@
                                     <option value="Enero">Enero</option><option value="Febrero">Febrero</option>
                                     <option value="Marzo">Marzo</option><option value="Abril">Abril</option>
                                     <option value="Mayo">Mayo</option><option value="Junio">Junio</option>
-                                    <option value="Julio">Julio</option><option value="Agosto" selected>Agosto</option>
+                                    <option value="Julio">Julio</option><option value="Agosto">Agosto</option>
                                     <option value="Septiembre">Septiembre</option><option value="Octubre">Octubre</option>
                                     <option value="Noviembre">Noviembre</option><option value="Diciembre">Diciembre</option>
                                 </select>
@@ -1427,7 +1403,7 @@
                                 </select>
                                 <select id="cto-week-select" class="px-4 py-2 rounded-lg border border-outline bg-surface text-on-surface text-sm hidden">
                                 </select>
-                                <span id="cto-year-label" class="hidden px-4 py-2 rounded-lg border border-outline bg-surface text-on-surface text-sm inline-block">2026</span>
+                                <span id="cto-year-label" class="hidden px-4 py-2 rounded-lg border border-outline bg-surface text-on-surface text-sm inline-block"></span>
                             </div>
 
                             <!-- Filtro Ver -->
@@ -1539,6 +1515,55 @@
         </div>
 
         <script data-purpose="ui-interactions">
+            // ========== MESES Y AÑO DEL DASHBOARD ==========
+            // Todo lo que depende de la fecha sale de aquí: antes cada mes nuevo había que
+            // agregarlo a mano en cinco lugares y el año estaba fijo en 2026.
+            // `?hoy=aaaa-mm-dd` simula otra fecha para probar un cambio de mes o de año.
+            const MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+            const HOY = (() => {
+                const simulada = new URLSearchParams(location.search).get('hoy');
+                const partes = simulada && simulada.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+                // Se arma con año, mes y día sueltos: `new Date('aaaa-mm-dd')` lo toma en UTC
+                // y en Lima (UTC-5) el primer día del mes cae en el mes anterior.
+                return partes ? new Date(+partes[1], +partes[2] - 1, +partes[3]) : new Date();
+            })();
+            const ANIO_ACTUAL = HOY.getFullYear();
+            const MES_ACTUAL = MESES[HOY.getMonth()];
+            const MESES_HASTA_HOY = MESES.slice(0, HOY.getMonth() + 1);
+
+            (function renderMonthSelectors() {
+                const navs = [
+                    { id: 'projects-month-nav', base: 'px-5 py-2.5 rounded-full text-sm whitespace-nowrap', idle: 'text-on-surface-variant hover:text-primary transition-all font-medium', active: 'text-primary border-b-2 border-primary font-semibold' },
+                    { id: 'issues-month-nav', base: 'px-5 py-2.5 rounded-full text-sm whitespace-nowrap transition-all', idle: 'text-on-surface-variant font-medium hover:text-primary', active: 'text-primary border-b-2 border-primary font-semibold' },
+                ];
+                navs.forEach(({ id, base, idle, active }) => {
+                    const nav = document.getElementById(id);
+                    if (!nav) return;
+                    nav.innerHTML = MESES_HASTA_HOY.map(m =>
+                        `<button class="${base} ${m === MES_ACTUAL ? active : idle}" data-month="${m}">${m}</button>`
+                    ).join('');
+                });
+
+                const tabIssues = document.getElementById('tab-issues');
+                if (tabIssues) tabIssues.dataset.month = MES_ACTUAL;
+
+                const ce2Select = document.getElementById('ce2-month-select');
+                if (ce2Select) {
+                    ce2Select.innerHTML = MESES_HASTA_HOY.map(m =>
+                        `<option value="${m}"${m === MES_ACTUAL ? ' selected' : ''}>${m}</option>`
+                    ).join('');
+                }
+
+                // El selector CTO conserva los 12 meses; solo toma el mes actual por defecto.
+                const ctoSelect = document.getElementById('cto-month-select');
+                if (ctoSelect) ctoSelect.value = MES_ACTUAL;
+
+                const trendYear = document.getElementById('ce2-trend-year');
+                if (trendYear) trendYear.textContent = ANIO_ACTUAL;
+                const ctoYear = document.getElementById('cto-year-label');
+                if (ctoYear) ctoYear.textContent = ANIO_ACTUAL;
+            })();
+
             // ========== THEME TOGGLE ==========
             window.toggleTheme = function() {
                 const html = document.documentElement;
@@ -1576,13 +1601,13 @@
 
             function cacheMetrics(monthName, data) {
                 localStorage.setItem(
-                    `cache_metrics_${monthName}_2026`,
+                    `cache_metrics_${monthName}_${ANIO_ACTUAL}`,
                     JSON.stringify({ data, timestamp: Date.now() })
                 );
             }
 
             function getCachedMetrics(monthName, ignoreExpiry = false) {
-                const key = `cache_metrics_${monthName}_2026`;
+                const key = `cache_metrics_${monthName}_${ANIO_ACTUAL}`;
                 const cached = localStorage.getItem(key);
                 if (!cached) return null;
 
@@ -1719,7 +1744,7 @@
 
                     // Actualizar encabezado del mes
                     const headerEl = document.getElementById('month-header');
-                    if (headerEl) headerEl.textContent = monthName + ' 2026: ' + data.total_projects + ' proyectos creados';
+                    if (headerEl) headerEl.textContent = monthName + ' ' + ANIO_ACTUAL + ': ' + data.total_projects + ' proyectos creados';
 
                     // Actualizar métricas
                     const totalEl = document.getElementById('metric-total');
@@ -1841,7 +1866,7 @@
 
                     const headerSpan = document.getElementById('issues-month-header');
                     if (headerSpan) {
-                        headerSpan.textContent = monthName + ' 2026: ' + totalIssues + ' issues totales | Pendientes: ' + pendingIssues;
+                        headerSpan.textContent = monthName + ' ' + ANIO_ACTUAL + ': ' + totalIssues + ' issues totales | Pendientes: ' + pendingIssues;
                     }
 
                     // Actualizar counter en tabla "Pendientes por Revisar"
@@ -2442,9 +2467,9 @@
                                           Array.from(document.querySelectorAll('button[data-month]')).find(btn =>
                                               btn.classList.contains('text-primary') && btn.classList.contains('bg-primary/10')
                                           ) ||
-                                          document.querySelector('button[data-month="Agosto"]');
+                                          document.querySelector(`button[data-month="${MES_ACTUAL}"]`);
 
-                    const currentMonth = activeMonthBtn ? activeMonthBtn.getAttribute('data-month') : 'Agosto';
+                    const currentMonth = activeMonthBtn ? activeMonthBtn.getAttribute('data-month') : MES_ACTUAL;
 
                     // Show loading overlay
                     showLoadingState();
@@ -2524,7 +2549,7 @@
             // ========== CE2 METRICS FUNCTIONS ==========
             window.loadCE2Metrics = async function() {
                 const monthSelect = document.getElementById('ce2-month-select');
-                const month = monthSelect?.value || 'Agosto';
+                const month = monthSelect?.value || MES_ACTUAL;
 
                 showLoadingState();
                 try {
@@ -2823,7 +2848,7 @@
             // ========== END CE2 METRICS FUNCTIONS ==========
 
             // ========== CE2 YEARLY TREND CHART ==========
-            const CE2_MONTHS = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto'];
+            const CE2_MONTHS = MESES_HASTA_HOY;
             let ce2TrendChartPct = null;
             let ce2TrendChartHrs = null;
             let ce2TrendMode = 'pct'; // 'pct' or 'hrs'
@@ -2858,7 +2883,7 @@
                 insight.classList.add('hidden');
 
                 // Fetch all months in parallel
-                const currentMonthIdx = new Date().getMonth(); // 0-based
+                const currentMonthIdx = HOY.getMonth(); // 0-based
                 const monthsToLoad = CE2_MONTHS.slice(0, Math.min(currentMonthIdx + 1, CE2_MONTHS.length));
 
                 const subtitle = document.getElementById('ce2-trend-subtitle');
@@ -3077,9 +3102,9 @@
                     // Load team workload (cumulative across all months)
                     loadTeamWorkload();
 
-                    // Mark Agosto as active tab
+                    // Marca el mes actual como pestaña activa
                     document.querySelectorAll('button[data-month]').forEach(btn => {
-                        if (btn.getAttribute('data-month') === 'Agosto') {
+                        if (btn.getAttribute('data-month') === MES_ACTUAL) {
                             btn.classList.add('text-primary', 'bg-primary/10', 'border-primary/30', 'shadow-lg', 'shadow-primary/5', 'font-semibold');
                             btn.classList.remove('text-on-surface-variant', 'font-medium');
                         } else {
@@ -3165,7 +3190,7 @@
             }
 
             function getCTOCacheKey() {
-                const year = new Date().getFullYear();
+                const year = ANIO_ACTUAL;
                 if (ctoCurrentPeriod === 'month') {
                     const m = document.getElementById('cto-month-select').value;
                     return `cache_cto_month_${m}_${year}`;
@@ -3180,7 +3205,7 @@
             }
 
             async function loadCTOMetrics() {
-                const year = new Date().getFullYear();
+                const year = ANIO_ACTUAL;
                 let url = `${WORKER_CONFIG.baseUrl}/api/cto/metrics?period=${ctoCurrentPeriod}&year=${year}&_t=${Date.now()}`;
                 if (ctoCurrentPeriod === 'month') {
                     url += `&month=${document.getElementById('cto-month-select').value}`;
