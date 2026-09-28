@@ -75,6 +75,7 @@ export class ProjectsService {
       by_state: {},
       by_lead: {},
       brands: {},
+      pending_projects: [],
     };
 
     // Inicializar brands con 0
@@ -101,6 +102,18 @@ export class ProjectsService {
       if (isPending) {
         pendingCount++;
       }
+
+      const projectBrands = labels.filter((l) => BRAND_LABELS.includes(l));
+      if (isPending) {
+        metrics.pending_projects.push({
+          name: project.name,
+          url: project.url,
+          status: project.status?.name || "Unknown",
+          lead: leadName,
+          brands: projectBrands.length ? projectBrands : ["Sin clasificar"],
+          created_at: project.createdAt,
+        });
+      }
       if (state === "in progress") metrics.in_progress++;
       if (state === "blocked") metrics.blocked++;
 
@@ -125,6 +138,7 @@ export class ProjectsService {
 
     // Use whitelist-based calculation for pending: only states that explicitly count as pending
     metrics.pending_ce2 = pendingCount;
+    metrics.pending_projects.sort((a, b) => a.created_at.localeCompare(b.created_at));
 
     return metrics;
   }
