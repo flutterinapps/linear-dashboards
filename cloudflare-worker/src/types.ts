@@ -107,6 +107,16 @@ export interface ProjectMetrics {
   by_state: Record<string, number>;
   by_lead: Record<string, number>;
   brands: Record<string, { total: number; pending: number; completed: number }>;
+  pending_projects: PendingProject[];
+}
+
+export interface PendingProject {
+  name: string;
+  url: string;
+  status: string;
+  lead: string;
+  brands: string[];
+  created_at: string;
 }
 
 export interface PeriodMetrics {

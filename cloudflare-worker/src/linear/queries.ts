@@ -6,6 +6,7 @@ export const PROJECTS_QUERY = `
     nodes {
       id
       name
+      url
       state
       status {
         name

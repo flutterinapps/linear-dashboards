@@ -620,6 +620,28 @@
         </div>
                         </div>
 
+                        <div id="pending-projects-container" class="glacier-card p-8 rounded-2xl mb-10 hidden">
+                            <h2 class="text-xl font-bold text-on-surface flex items-center gap-2 mb-6">
+                                <span class="material-symbols-outlined text-primary">pending_actions</span>
+                                Proyectos pendientes
+                                <span id="pending-projects-count" class="text-sm font-medium text-on-surface-variant"></span>
+                            </h2>
+                            <div class="overflow-x-auto rounded-xl border border-outline-variant/50">
+                                <table aria-label="Proyectos pendientes del mes" class="w-full text-left">
+                                    <thead>
+                                        <tr class="bg-surface-container-high">
+                                            <th class="px-6 py-4 text-xs font-bold text-primary uppercase tracking-widest">Proyecto</th>
+                                            <th class="px-6 py-4 text-xs font-bold text-primary uppercase tracking-widest">Estado</th>
+                                            <th class="px-6 py-4 text-xs font-bold text-primary uppercase tracking-widest">Marca</th>
+                                            <th class="px-6 py-4 text-xs font-bold text-primary uppercase tracking-widest">Lead</th>
+                                            <th class="px-6 py-4 text-xs font-bold text-primary uppercase tracking-widest text-right">Linear</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="pending-projects-body" class="divide-y divide-outline-variant/30"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
                         <div class="mb-10">
                             <h2 class="text-xl font-bold text-on-surface flex items-center gap-2 mb-6">
                                 <span class="material-symbols-outlined text-primary">branding_watermark</span>
@@ -1722,6 +1744,41 @@
                 }
             }
 
+            function escapeHtml(text) {
+                return String(text ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+            }
+
+            function renderPendingProjects(projects) {
+                const container = document.getElementById('pending-projects-container');
+                const body = document.getElementById('pending-projects-body');
+                const count = document.getElementById('pending-projects-count');
+                if (!container || !body) return;
+                // Un Worker sin `pending_projects` (versión anterior) no trae la lista: se oculta la tabla
+                // en vez de mostrarla vacía, porque vacía se leería como «no hay pendientes».
+                if (!Array.isArray(projects)) {
+                    container.classList.add('hidden');
+                    return;
+                }
+                container.classList.remove('hidden');
+                if (count) count.textContent = `(${projects.length})`;
+                if (projects.length === 0) {
+                    body.innerHTML = '<tr><td colspan="5" class="px-6 py-6 text-center text-sm text-on-surface-variant">Sin proyectos pendientes este mes.</td></tr>';
+                    return;
+                }
+                body.innerHTML = projects.map(p => `
+                    <tr class="hover:bg-surface-container-highest/50 transition-colors">
+                        <td class="px-6 py-4 text-on-surface font-medium">${escapeHtml(p.name)}</td>
+                        <td class="px-6 py-4 text-sm text-on-surface-variant capitalize whitespace-nowrap">${escapeHtml(p.status)}</td>
+                        <td class="px-6 py-4 text-sm text-on-surface-variant whitespace-nowrap">${escapeHtml((p.brands || []).join(', '))}</td>
+                        <td class="px-6 py-4 text-sm text-on-surface-variant whitespace-nowrap">${escapeHtml(p.lead)}</td>
+                        <td class="px-6 py-4 text-right">
+                            <a href="${escapeHtml(p.url)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline whitespace-nowrap">
+                                Abrir <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </a>
+                        </td>
+                    </tr>`).join('');
+            }
+
             async function updateMonthData(monthName) {
                 try {
                     if (!API_CONFIG.enableDynamicFetch) {
@@ -1761,6 +1818,8 @@
 
                     const completedEl = document.getElementById('metric-completed');
                     if (completedEl) completedEl.textContent = data.completed;
+
+                    renderPendingProjects(data.pending_projects);
 
                 // Actualizar tabla Por Estado
                 const byState = data.by_state || {};
