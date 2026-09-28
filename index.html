@@ -1718,11 +1718,13 @@
             let monthSectionsLoaded = false;
 
             async function loadMonthSections(month) {
-                monthSectionsLoaded = true;
                 showLoadingState();
                 try {
-                    await updateMonthData(month);
-                    await updateIssuesMonthData(month);
+                    const projectsOk = await updateMonthData(month);
+                    const issuesOk = await updateIssuesMonthData(month);
+                    // Solo se marca como cargado si las dos respondieron: si falló, al volver a
+                    // la pestaña se reintenta en vez de quedarse en «—».
+                    monthSectionsLoaded = projectsOk === true && issuesOk === true;
                 } catch (error) {
                     console.error('Error:', error);
                     showErrorState('Error al cargar datos');
@@ -1902,6 +1904,7 @@
                     if (unclassifiedDisclaimer) {
                         unclassifiedDisclaimer.style.display = hasUnclassified ? 'flex' : 'none';
                     }
+                    return true;
                 } catch (error) {
                     console.error('Error en updateMonthData:', error);
                     showErrorState('Error al actualizar datos de proyectos');
@@ -2141,6 +2144,7 @@
                 window.currentPendingList = pendingList;
                 // displayWorkloadByAssignee(pendingList);
                 currentAssigneeFilter = null;
+                return true;
             }
 
             // ========== WORKLOAD BY ASSIGNEE FUNCTIONS ==========
