@@ -620,28 +620,6 @@
         </div>
                         </div>
 
-                        <div id="pending-projects-container" class="glacier-card p-8 rounded-2xl mb-10 hidden">
-                            <h2 class="text-xl font-bold text-on-surface flex items-center gap-2 mb-6">
-                                <span class="material-symbols-outlined text-primary">pending_actions</span>
-                                Proyectos pendientes
-                                <span id="pending-projects-count" class="text-sm font-medium text-on-surface-variant"></span>
-                            </h2>
-                            <div class="overflow-x-auto rounded-xl border border-outline-variant/50">
-                                <table aria-label="Proyectos pendientes del mes" class="w-full text-left">
-                                    <thead>
-                                        <tr class="bg-surface-container-high">
-                                            <th class="px-6 py-4 text-xs font-bold text-primary uppercase tracking-widest">Proyecto</th>
-                                            <th class="px-6 py-4 text-xs font-bold text-primary uppercase tracking-widest">Estado</th>
-                                            <th class="px-6 py-4 text-xs font-bold text-primary uppercase tracking-widest">Marca</th>
-                                            <th class="px-6 py-4 text-xs font-bold text-primary uppercase tracking-widest">Lead</th>
-                                            <th class="px-6 py-4 text-xs font-bold text-primary uppercase tracking-widest text-right">Linear</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="pending-projects-body" class="divide-y divide-outline-variant/30"></tbody>
-                                </table>
-                            </div>
-                        </div>
-
                         <div class="mb-10">
                             <h2 class="text-xl font-bold text-on-surface flex items-center gap-2 mb-6">
                                 <span class="material-symbols-outlined text-primary">branding_watermark</span>
@@ -875,6 +853,27 @@
             <td class="px-6 py-4 text-right font-semibold text-on-surface" id="status-archived">—</td>
         </tr>
                                     </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="pending-projects-container" class="glacier-card p-8 rounded-2xl mt-10 hidden">
+                            <h2 class="text-xl font-bold text-on-surface flex items-center gap-2 mb-6">
+                                <span class="material-symbols-outlined text-primary">pending_actions</span>
+                                Proyectos pendientes
+                                <span id="pending-projects-count" class="text-sm font-medium text-on-surface-variant"></span>
+                            </h2>
+                            <div class="overflow-x-auto rounded-xl border border-outline-variant/50">
+                                <table aria-label="Proyectos pendientes del mes" class="w-full text-left">
+                                    <thead>
+                                        <tr class="bg-surface-container-high">
+                                            <th class="px-6 py-4 text-xs font-bold text-primary uppercase tracking-widest">Proyecto</th>
+                                            <th class="px-6 py-4 text-xs font-bold text-primary uppercase tracking-widest">Estado</th>
+                                            <th class="px-6 py-4 text-xs font-bold text-primary uppercase tracking-widest">Marca</th>
+                                            <th class="px-6 py-4 text-xs font-bold text-primary uppercase tracking-widest">Lead</th>
+                                            <th class="px-6 py-4 text-xs font-bold text-primary uppercase tracking-widest text-right">Linear</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="pending-projects-body" class="divide-y divide-outline-variant/30"></tbody>
                                 </table>
                             </div>
                         </div>
